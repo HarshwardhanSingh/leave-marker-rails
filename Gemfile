@@ -27,3 +27,4 @@ group :development do
 end
 
 gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'webpacker', '~> 3.0'
