@@ -20,4 +20,6 @@
 
 /config/secrets.yml
 /config/local_env.yml
-cacert.pem
+cacert.pem/public/packs
+/public/packs-test
+/node_modules
