@@ -28,3 +28,4 @@ end
 
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem 'webpacker', '~> 3.0'
+gem 'semantic-ui-sass'
