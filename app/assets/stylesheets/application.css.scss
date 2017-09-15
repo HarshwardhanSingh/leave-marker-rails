@@ -1,2 +1,43 @@
 @import "semantic-ui";
 // @import "*";
+
+body {
+  margin-top: 70px;
+}
+
+nav.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 55px;
+  display: block;
+  z-index: 10;
+  background: #0b6c9e;
+  font-size: 24px;
+  line-height: 2;
+  padding: 0px 55px;
+  color: #fff;
+
+  a {
+    color: #fff;
+  }
+
+  ul {
+    font-size: 14px;
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 4;
+
+    li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+}
+
+.container {
+  padding: 0px 55px;
+}
