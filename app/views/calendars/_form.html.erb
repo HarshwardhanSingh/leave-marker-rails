@@ -1,0 +1,5 @@
+<%= simple_form_for calendar, html: { class: 'ui form' } do |f| %>
+  <%= f.input :name, wrapper_html: { class: 'field'} %>
+  <%= f.input :description, wrapper_html: { class: 'field'} %>
+  <%= f.button :submit, class: 'ui button' %>
+<% end %>
