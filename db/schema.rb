@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913184430) do
+ActiveRecord::Schema.define(version: 20170915190830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "admin_id"
+    t.text "description"
+  end
+
+  create_table "calendars_users", id: false, force: :cascade do |t|
+    t.bigint "calendar_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["calendar_id", "user_id"], name: "index_calendars_users_on_calendar_id_and_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider"
@@ -23,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170913184430) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
   end
 
 end

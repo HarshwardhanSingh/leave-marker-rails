@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
 
+  resources :calendars
+
   root to: "home#show"
 end
