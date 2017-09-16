@@ -3,7 +3,7 @@ class CalendarsController < ApplicationController
 
   def index
     calendars = Calendar.where(admin_id: current_user.id).order(created_at: :asc)
-    render :index, locals: { calendars: calendars}
+    render layout: 'user_layout', locals: { calendars: calendars }
   end
 
   def show

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LeavemarkerRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="header">
+      <%= link_to "DemoApp", root_path, class: 'header-logo' %>
+      <ul>
+        <% if current_user %>
+          <li>
+            <%= link_to "Dashboard", root_path %>
+          </li>
+          <li>
+            <%= link_to "Calendars", calendars_path %>
+          </li>
+          <li>
+            Signed in as <strong><%= current_user.name %></strong>!
+          </li>
+          <li>
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+    <div class="ui grid container">
+      <div class="four wide column">
+        <div class="ui feed">
+          <h4 class="ui header block custom-header">
+            Members
+          </h4>
+          <% if current_user %>
+            <% @users.each do |user| %>
+              <div class="event">
+                <div class="label">
+                  <%= image_tag(user.avatar) %>
+                </div>
+                <div class="content">
+                  <div class="summary">
+                    <div class="user">
+                      <%= user.name %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="eleven wide column">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

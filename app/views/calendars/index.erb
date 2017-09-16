@@ -1,24 +1,20 @@
+<h3 class="ui block header custom-header">
+  Calendars
+</h3>
 <div class="ui two column centered grid">
-  <div class="column">
-    <h3 class="ui block header">
-      Calendars
-    </h3>
-    <div class="ui two column centered grid">
-      <% calendars.each do |calendar| %>
-        <div class="column">
-          <div class="ui card">
-            <div class="content">
-              <div class="header">
-                <%= calendar.name %>
-              </div>
-              <div class="meta">
-                <%= calendar.description || time_ago_in_words(calendar.created_at) %>
-              </div>
-              <div class="description"></div>
-            </div>
+  <% calendars.each do |calendar| %>
+    <div class="column">
+      <div class="ui card">
+        <div class="content">
+          <div class="header">
+            <%= calendar.name %>
           </div>
+          <div class="meta">
+            <%= calendar.description || time_ago_in_words(calendar.created_at) %>
+          </div>
+          <div class="description"></div>
         </div>
-    <% end %>
+      </div>
     </div>
-  </div>
+<% end %>
 </div>
