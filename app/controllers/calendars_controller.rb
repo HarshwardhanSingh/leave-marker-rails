@@ -21,6 +21,8 @@ class CalendarsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to calendars_path }
       end
+    else
+      render :new, locals: { calendar: calendar}
     end
   end
 
