@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915190830) do
+ActiveRecord::Schema.define(version: 20170916102230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,26 @@ ActiveRecord::Schema.define(version: 20170915190830) do
     t.text "description"
   end
 
+  create_table "calendars_leaves", id: false, force: :cascade do |t|
+    t.bigint "calendar_id", null: false
+    t.bigint "leave_id", null: false
+    t.index ["calendar_id", "leave_id"], name: "index_calendars_leaves_on_calendar_id_and_leave_id"
+  end
+
   create_table "calendars_users", id: false, force: :cascade do |t|
     t.bigint "calendar_id", null: false
     t.bigint "user_id", null: false
     t.index ["calendar_id", "user_id"], name: "index_calendars_users_on_calendar_id_and_user_id"
+  end
+
+  create_table "leaves", force: :cascade do |t|
+    t.integer "reason"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_leaves_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +56,5 @@ ActiveRecord::Schema.define(version: 20170915190830) do
     t.string "avatar"
   end
 
+  add_foreign_key "leaves", "users"
 end

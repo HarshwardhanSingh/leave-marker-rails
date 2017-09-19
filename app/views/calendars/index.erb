@@ -1,6 +1,8 @@
 <h3 class="ui block header custom-header">
   Calendars
 </h3>
+<%= link_to "New Calendar", new_calendar_path %>
+<br />
 <div class="ui two column centered grid">
   <% calendars.each do |calendar| %>
     <div class="column">

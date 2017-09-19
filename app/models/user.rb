@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_and_belongs_to_many :calendars
+  has_many :leaves
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
